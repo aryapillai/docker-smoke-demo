@@ -32,7 +32,7 @@ pipeline {
                 sh '''
                     docker run -d \
                         --name smoke-demo \
-                        -p 8080:80 \
+                        -p 8081:80 \
                         smoke-demo
                 '''
             }
