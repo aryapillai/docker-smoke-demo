@@ -22,7 +22,7 @@ pipeline {
         stage('Remove Existing Container') {
             steps {
                 sh '''
-                    docker rm -f smoke-test || true
+                    docker rm -f smoke-demo || true
                 '''
             }
         }
@@ -31,7 +31,7 @@ pipeline {
             steps {
                 sh '''
                     docker run -d \
-                        --name smoke-test \
+                        --name smoke-demo \
                         -p 8080:80 \
                         smoke-demo
                 '''
@@ -59,7 +59,7 @@ pipeline {
         }
 
         always {
-            sh 'docker rm -f smoke-test || true'
+            sh 'docker rm -f smoke-demo || true'
             echo 'Pipeline execution completed.'
         }
     }
